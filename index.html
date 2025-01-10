@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="matSFX - Your Music, Your Way. An open-source, ad-free music streaming platform.">
+    <title>matSFX - Listen with Joy-</title>
+    <link href="app-images/matsfx_logo.webp" as="image">
+    <style>
+        :root {
+            --primary-color: #2D7FF9;
+            --primary-hover: #1E6AD4;
+            --primary-light: rgba(45, 127, 249, 0.1);
+            --accent-color: #18BFFF;
+            --dark-bg: #0A1220;
+            --darker-bg: #060912;
+            --card-bg: #111827;
+            --card-hover: #1F2937;
+            --nav-bg: rgba(17, 24, 39, 0.95);
+            --light-text: #FFFFFF;
+            --gray-text: #94A3B8;
+            --border-color: #1F2937;
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: auto;
+			border-radius: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-wrap: wrap;
+            padding-top: 70px;
+        }
+
+        .content-section, .features-section {
+            width: 100%;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--dark-bg);
+        }
+
+        @media (min-width: 1024px) {
+            .content-section, .features-section {
+                width: 50%;
+            }
+
+            .features-section {
+                background-color: var(--darker-bg);
+            }
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeIn 0.6s forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background-color: var(--card-hover);
+            transform: translateX(-10px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--light-text);
+        }
+
+        .feature-description {
+            color: var(--gray-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Logo */
+        .logo {
+            width: 180px;
+            height: 180px;
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Typography */
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: var(--gray-text);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--light-text);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--light-text);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--card-hover);
+            border-color: var(--primary-color);
+        }
+
+        /* Alpha Tag */
+        .alpha-tag {
+            background: linear-gradient(135deg, var(--primary-light), rgba(24, 191, 255, 0.1));
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .alpha-tag::before {
+            content: "⚡";
+            font-size: 1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .changelog-version {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .changelog-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .changelog-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .changelog-list li::before {
+            content: "→";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+		.changelog-header-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            margin-bottom: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .changelog-image-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+		
+		.video-section {
+           width: 100%;
+			background: var(--darker-bg);
+			padding: 4rem 2rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			border-bottom: 1px solid var(--border-color);
+		}
+
+		.video-container {
+			position: relative;
+			width: 100%;
+			max-width: 960px;
+			margin: 0 auto;
+			border-radius: var(--border-radius-lg);
+			overflow: hidden;
+			box-shadow: var(--shadow-lg);
+		}
+
+		.video-wrapper {
+			position: relative;
+			padding-bottom: 56.25%; /* 16:9 aspect ratio */
+			height: 0;
+		}
+
+		.video-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+
+		.mute-button {
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			background: rgba(0, 0, 0, 0.7);
+			border: none;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: var(--transition);
+			z-index: 10;
+		}
+
+		.mute-button:hover {
+			background: rgba(0, 0, 0, 0.9);
+			transform: scale(1.1);
+		}
+
+		.mute-button svg {
+			width: 20px;
+			height: 20px;
+			fill: white;
+		}
+
+        /* Partner Section */
+        .partner-banner {
+            background: var(--card-bg);
+            padding: 4rem 2rem;
+            margin-top: 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .partner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .partner-title {
+            color: var(--light-text);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .partner-card {
+            background: var(--darker-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+			border-radius: 15px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .partner-card:hover .partner-logo {
+            transform: scale(1.1);
+        }
+
+        .partner-name {
+            color: var(--light-text);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .partner-description {
+            color: var(--gray-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive*/
+        @media (max-width: 768px) {
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            .subtitle {
+                text-align: center;
+            }
+
+            .content-section {
+                align-items: center;
+                text-align: center;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <img src="app-images/matsfx_logo.webp" alt="matSFX" class="nav-logo">
+        <div class="nav-links">
+			<a class="nav-link" id="download" href="matsfx-database.zip" download="matsfx-database.zip">Database</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#partners" class="nav-link">Partners</a>
+            <a href="https://github.com/matsfx-music" class="nav-link">GitHub</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content-section">
+            <img class="logo" src="app-images/matsfx_logo.webp" alt="matSFX Logo" width="180" height="180" loading="lazy">
+            <h1 class="main-title">Your Music, Your Way</h1>
+            <p class="subtitle">Discover, stream, and enjoy ad-free music on an open-source platform built with your feedback in mind.</p>
+            <div class="action-buttons">
+                <a href="https://alpha.matsfx.com" class="btn btn-primary">Try Alpha ✨</a>
+                <a href="#" id="changelogBtn" class="btn btn-secondary">View Changelog 📝</a>
+            </div>
+            <div class="alpha-tag">Alpha 0.4.1</div>
+        </div>
+        <div class="features-section" id="features">
+            <div class="feature-card" style="--delay: 1">
+                <div class="feature-icon">🗿</div>
+                <h3 class="feature-title">Open Source & Transparent</h3>
+                <p class="feature-description">Every line of code is public on GitHub. We believe in transparency and community-driven development.</p>
+            </div>
+            <div class="feature-card" style="--delay: 2">
+                <div class="feature-icon">🫵</div>
+                <h3 class="feature-title">Community-Driven</h3>
+                <p class="feature-description">Your feedback shapes our platform. We actively listen to suggestions and implement community-requested features.</p>
+            </div>
+            <div class="feature-card" style="--delay: 3">
+                <div class="feature-icon">🐋</div>
+                <h3 class="feature-title">100% Ad-Free Experience</h3>
+                <p class="feature-description">Enjoy uninterrupted music without any ads. We're supported by our community through Ko-fi donations.</p>
+            </div>
+        </div>
+    </div>
+	
+	<div class="video-section">
+        <div class="video-container">
+			<div class="video-wrapper">
+				<div id="video-player"></div>
+				<button class="mute-button" id="muteButton" aria-label="Toggle mute">
+					<svg viewBox="0 0 24 24" class="mute-icon">
+						<path d="M6.717 3.55A.5.5 0 017 3h6a.5.5 0 01.5.5v13a.5.5 0 01-.5.5H7a.5.5 0 01-.283-.086L2.94 13H1.5a.5.5 0 01-.5-.5v-5a.5.5 0 01.5-.5h1.44l3.777-3.914zM16 7.25v5.5a.75.75 0 001.5 0v-5.5a.75.75 0 00-1.5 0zm3.5 0v5.5a.75.75 0 001.5 0v-5.5a.75.75 0 00-1.5 0z"/>
+					</svg>
+				</button>
+			</div>
+        </div>
+    </div>
+
+    <div class="partner-banner" id="partners">
+        <div class="partner-container">
+            <h2 class="partner-title">Our Trusted Partners</h2>
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <img src="partners/blockphase.de.webp" alt="BlockPhase.de" class="partner-logo">
+                    <h3 class="partner-name">BlockPhase.de</h3>
+                    <p class="partner-description">Create a free Minecraft server for your gaming needs. Perfect for short-term projects and gaming with friends.</p>
+                </div>
+				<div class="partner-card">
+                    <img src="partners/ukystudios.com.webp" alt="ukystudios.com" class="partner-logo">
+                    <h3 class="partner-name">ukystudios.com</h3>
+                    <p class="partner-description">The perfect Sound Studio for you, to upload your songs securely.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Changelog Modal -->
+<div id="changelogModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" aria-label="Close">&times;</span>
+            <h2 class="changelog-version">Changelog - Alpha 0.4.1</h2>
+            <h3>The New Dashboard Update Part 1</h3>
+            <div class="changelog-content">
+                <p>We're excited to present a fresh redesign of the matSFX Dashboard. This is Part One of our update series, bringing you enhanced features and a better user experience.</p>
+                
+                <h4>What's New</h4>
+                <ul class="changelog-list">
+                    <li>
+                        <span>Introducing Top Artists: Now you can discover the most active creators on matSFX, ranked by song uploads</span>
+                    </li>
+                    <li>
+                        <span>Improved user interface with better responsiveness and accessibility</span>
+                    </li>
+                    <li>
+                        <span>Enhanced performance optimizations for smoother navigation</span>
+                    </li>
+                </ul>
+                <div class="changelog-image-container">
+                    <img src="https://matsfx.com/changelog/10.12.2024_alpha_0.4.1.webp" 
+                         alt="New Dashboard Preview" 
+                         class="changelog-header-image" 
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="partner-banner" style="margin-bottom: 0; padding: 2rem;">
+        <div class="partner-container">
+            <p style="color: var(--gray-text);">© 2024 matSFX.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('id') === 'changelogBtn') return;
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Modal functionality
+            const modal = document.getElementById('changelogModal');
+            const changelogBtn = document.getElementById('changelogBtn');
+            const closeBtn = document.querySelector('.close-modal');
+
+            const toggleModal = (show) => {
+                modal.style.display = show ? 'block' : 'none';
+                if (show) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            };
+
+            changelogBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleModal(true);
+            });
+
+            closeBtn.addEventListener('click', () => toggleModal(false));
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) toggleModal(false);
+            });
+
+            // Close modal on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') toggleModal(false);
+            });
+
+            // Feature cards hover effect
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateX(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
+            });
+
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            featureCards.forEach(card => observer.observe(card));
+        });
+		
+		let tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		let firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		let player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('video-player', {
+				videoId: 'cdLcLiV0fn4',
+				playerVars: {
+					'autoplay': 1,        // Enable autoplay
+					'controls': 0,        // Hide controls
+					'showinfo': 0,        // Hide video info
+					'rel': 0,             // Don't show related videos
+					'mute': 1,            // Start muted (required for autoplay)
+					'playsinline': 1,     // Play inline on mobile
+					'loop': 1,            // Enable looping
+					'playlist': 'cdLcLiV0fn4' // Required for looping
+				},
+				events: {
+					'onReady': onPlayerReady,
+					'onStateChange': onPlayerStateChange
+				}
+			});
+		}
+
+		function onPlayerReady(event) {
+			// Start playing when ready
+			event.target.playVideo();
+
+			const muteButton = document.getElementById('muteButton');
+			let isMuted = true;
+
+			muteButton.addEventListener('click', () => {
+				if (isMuted) {
+					player.unMute();
+					player.setVolume(100); // Set to full volume when unmuting
+				} else {
+					player.mute();
+				}
+				isMuted = !isMuted;
+
+				// Update the icon
+				muteButton.innerHTML = isMuted ? 
+					'<svg viewBox="0 0 24 24"><path d="M6.717 3.55A.5.5 0 017 3h6a.5.5 0 01.5.5v13a.5.5 0 01-.5.5H7a.5.5 0 01-.283-.086L2.94 13H1.5a.5.5 0 01-.5-.5v-5a.5.5 0 01.5-.5h1.44l3.777-3.914zM16 7.25v5.5a.75.75 0 001.5 0v-5.5a.75.75 0 00-1.5 0zm3.5 0v5.5a.75.75 0 001.5 0v-5.5a.75.75 0 00-1.5 0z"/></svg>' :
+					'<svg viewBox="0 0 24 24"><path d="M6.717 3.55A.5.5 0 017 3h6a.5.5 0 01.5.5v13a.5.5 0 01-.5.5H7a.5.5 0 01-.283-.086L2.94 13H1.5a.5.5 0 01-.5-.5v-5a.5.5 0 01.5-.5h1.44l3.777-3.914z"/></svg>';
+			});
+		}
+
+		function onPlayerStateChange(event) {
+			// If video ends, replay it
+			if (event.data === YT.PlayerState.ENDED) {
+				player.playVideo();
+			}
+		}
+    </script>
+	
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6530871411657748"
+     crossorigin="anonymous"></script>
+	
+</body>
+</html>
