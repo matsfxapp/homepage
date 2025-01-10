@@ -9,4 +9,3 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - .:/usr/share/nginx/html:ro
     restart: unless-stopped
-    pull_policy: build
