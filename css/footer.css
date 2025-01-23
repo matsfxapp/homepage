@@ -39,23 +39,3 @@
 .footer-terms, .footer-privacy, .terms-license {
     transition: var(--transition);
 }
-
-@media (max-width: 600px) {
-    .footer {
-        width: 60vh;
-        height: 10vh;
-        left: -5%;
-        top: 290%;
-    }
-
-    .footer-legal a {
-        font-size: 1.5rem;
-        margin: 0 30px;
-    }
-
-    .footer-copy {
-        font-size: 1.5rem;
-        bottom: -80%;
-        left: 38%;
-    }
-}

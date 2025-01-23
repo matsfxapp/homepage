@@ -27,20 +27,3 @@
 .socials img:hover {
     transform: scale(1.2) rotate(5deg);
 }
-
-@media (max-width: 600px) {
-    .socials {
-        width: 54vh;
-        height: 10vh;
-        top: 210%;
-    }
-
-    .socials a {
-        margin: 0 30px;
-    }
-
-    .socials img {
-        height: 50px;
-        width: 50px;
-    }
-}

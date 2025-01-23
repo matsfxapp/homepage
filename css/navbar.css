@@ -67,23 +67,3 @@
     color: var(--lighter-text);
     font-size: 1.3em;
 }
-
-@media (max-width: 600px) {
-    .navbar {
-        width: 54vh;
-    }
-
-    .nav-logo {
-        display: none;
-    }
-
-    .nav-site-name {
-        display: none;
-    }
-
-    .nav-button a{
-        position: absolute;
-        right: -0.5%;
-        top: 25%;
-    }
-}
