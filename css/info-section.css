@@ -1,0 +1,129 @@
+.info-section {
+    position: absolute;
+    background-color: var(--bg-card);
+    width: 160vh;
+    height: 60vh;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    border: var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.info-text-one, .info-text-two {
+    color: var(--white-text);
+    font-family: var(--font-1);
+    font-weight: 2rem;
+    font-size: 45px;
+}
+
+/* info box one */
+.info-one {
+    position: absolute;
+    width: 70vh;
+    height: 45vh;
+    background-color: var(--bg-card);
+    left: 5%;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    overflow: hidden;
+}
+
+.info-text-one {
+    position: absolute;
+    left: 31%;
+    top: 42%;
+}
+
+.info-image-one {
+    width: 100%;
+    height: auto;
+    resize: both;
+    overflow: hidden;
+}
+
+.info-one img {
+    width: 115%;
+    height: 100%;
+    opacity: 15%;
+    transition: var(--transition);
+}
+
+.info-one img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* info box two */
+.info-two {
+    position: absolute;
+    width: 70vh;
+    height: 45vh;
+    background-color: var(--bg-card);
+    right: 5%;
+    border-radius: var(--border-radius);
+    border: var(--border);
+    overflow: hidden;
+}
+
+.info-text-two {
+    position: absolute;
+    left: 31%;
+    top: 42%;
+}
+
+.info-two img {
+    width: 100%;
+    height: auto;
+    opacity: 15%;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.info-two img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 600px) {
+    .info-section {
+        width: 54vh;
+        height: 100vh;
+        top: 100%;
+        left: 50%;
+    }
+
+    .info-one {
+        width: 48.3vh;
+        height: 45hv;
+        top: 3%;
+    }
+
+    .info-text-one {
+        font-size: 2.3rem;
+        left: 23%;
+    }
+
+    .info-one img{
+        width: 180%;
+    }
+
+    .info-two {
+        width: 48.3vh;
+        height: 45hv;
+        top: 52%;
+    }
+
+    .info-text-two {
+        font-size: 2.3rem;
+        left: 23%;
+    }
+
+    .info-two img{
+        width: 180%;
+    }
+}

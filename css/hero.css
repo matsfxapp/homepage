@@ -1,0 +1,163 @@
+.hero {
+    position: absolute;
+    width: 170vh;
+    height: 70vh;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+ 
+.hero-card {
+    position: absolute;
+    background-color: var(--bg-card);
+    border-radius: 50px;
+    border: var(--border);
+    top: 0%;
+    left: 3%;
+    width: 80vh;
+    height: 50vh;
+    animation: slideIn 1s ease-out;
+}
+
+.hero-quote {
+    font-family: var(--font-2);
+    color: var(--lighter-text);
+    font-size: 4.2em;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    animation: fadeIn 1s ease-out;
+    transition: var(--transition);
+}
+
+.hero-quote:hover {
+    transform: rotate(-1deg);
+}
+
+.hero-info-text, .hero-info-link {
+    position: absolute;
+    font-family: var(--font-1);
+    color: var(--lighter-text);
+    font-size: 1.5rem;
+}
+
+.hero-info-text {
+    top: 30%;
+    left: 7%;
+    line-height: 1.5;
+}
+
+.hero-info-link {
+    top: 60%;
+    left: 7%;
+}
+
+.hero-info-link a {
+    color: var(--bg-btn);
+    text-decoration: none;
+}
+
+.hero-logo {
+    position: absolute;
+    top: 0%;
+    right: 2%;
+    transition: var(--transition);
+}
+
+.hero-logo-image {
+    width: 97%;
+    height: auto;
+}
+
+.hero-logo:hover {
+    transform: rotate(2deg);
+}
+
+.hero-buttons {
+    position: absolute;
+    width: 75vh;
+    height: 8vh;
+
+    bottom: 6%;
+    left: 25%;
+}
+
+.hero-button1, .hero-button2 {
+    position: absolute;
+    background-color: #111827;
+    width: 35vh;
+    height: 8vh;
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    font-family: var(--font-1);
+    color: var(--lighter-text);
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-button1 {
+    left: 1%;
+    transition: var(--transition);
+}
+
+.hero-button2 {
+    right: 1%;
+    transition: var(--transition);
+}
+
+.hero-button1:hover, .hero-button2:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+@media (max-width: 600px) {
+    .hero-logo {
+        display: none;
+    }
+
+    .hero-card {
+        width: 54vh;
+        left: 34%;
+    }
+
+    .hero-quote {
+        left: 5%;
+        font-size: 2.5rem;
+    }
+
+    .hero-info-text {
+        font-size: 1.3rem;
+        top: 25%;
+        left: 5%;
+    }
+
+    .hero-info-link {
+        font-size: 1.3rem;
+        top: 70%;
+        left: 5%;
+    }
+
+    .hero-button1 {
+        width: 54vh;
+        height: 6vh;
+        bottom: 3%;
+        left: 21%;;
+    }
+
+    .hero-button2 {
+        width: 54vh;
+        height: 6vh;
+        top: 120%;
+        left: 21%;;
+    }
+
+}

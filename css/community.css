@@ -1,0 +1,110 @@
+.community {
+    position: absolute;
+    background-color: var(--bg-card);
+    width: 160vh;
+    height: 60vh;
+    top: 205%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50px;
+    border: var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.video-container {
+    position: absolute;
+    width: 100%;
+    left: 2%;
+    top: 12%;
+    max-width: 960px;
+    overflow: hidden;
+    animation: slideIn 1.5s ease-out;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border: none;
+    left: 5%;
+    max-width: 960px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.mute-button {
+    position: absolute;
+    bottom: 140px;
+    right: 180px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.mute-button:hover {
+    transform: scale(1.2) rotate(-20deg);
+}
+
+.mute-button svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.community-text {
+    width: 55vh;
+    height: 18vh;
+    position: absolute;
+    right: 6%;
+    top: 14%;
+    animation: fadeIn 2s ease-out;
+}
+
+.community-text-title, .community-text-description, .community-love-you {
+    font-family: var(--font-1);
+    color: var(--lighter-text);
+}
+
+@media (max-width: 600px) {
+    .community {
+        width: 54vh;
+        height: 80vh;
+    }
+
+    .community-text {
+        font-size: 0.8rem;
+        width: 44vh;
+        height: 30vh;
+        top: 40%;
+    }
+
+    .video-container {
+        top: 5%;
+        left: 5%;
+    }
+
+    .mute-button {
+        top: 160px;
+        right: 85px;
+    }
+}
