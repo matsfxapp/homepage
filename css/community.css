@@ -84,3 +84,27 @@
     font-family: var(--font-1);
     color: var(--lighter-text);
 }
+
+@media (max-width: 600px) {
+    .community {
+        width: 54vh;
+        height: 80vh;
+    }
+
+    .community-text {
+        font-size: 0.8rem;
+        width: 44vh;
+        height: 30vh;
+        top: 40%;
+    }
+
+    .video-container {
+        top: 5%;
+        left: 5%;
+    }
+
+    .mute-button {
+        top: 160px;
+        right: 85px;
+    }
+}
