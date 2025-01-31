@@ -85,6 +85,44 @@
     color: var(--lighter-text);
 }
 
+.community-btn {
+    position: absolute;
+    width: 75vh;
+    height: 8vh;
+
+    bottom: 6%;
+    left: 25%;
+}
+
+.community-btn {
+    position: absolute;
+    background-color: #111827;
+    width: 35vh;
+    height: 8vh;
+    border: var(--border);
+    border-radius: var(--border-radius);
+
+    font-family: var(--font-1);
+    color: var(--lighter-text);
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.community-btn {
+    top: 76%;
+    left: 67%;
+    transition: var(--transition);
+}
+
+.community-btn:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
 @media (max-width: 600px) {
     .community {
         width: 54vh;
