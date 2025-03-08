@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,12 +14,12 @@
     <link rel="stylesheet" href="css/community.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    
     <script src="js/video.js"></script>
     <title>matSFX - Listen with Joy</title>
 </head>
 <body>
-    <!-- navbar - nav-logo, nav-links, button, nav-site-name -->
+    <!-- navbar -->
     <div class="navbar">
         <div class="nav-logo">
             <img src="images/matsfx_logo.jpg" alt="matSFX Logo" class="nav-logo-image">
@@ -34,52 +35,55 @@
         <p class="nav-site-name">matSFX.com</p>
     </div>
 
-    <!-- hero - hero-card, hero-quote, hero-info-text, hero-info-link, hero-logo, hero-buttons, hero-button1, hero-button2-->
-    <div class="hero">
-        <div class="hero-card">
-            <h1 class="hero-quote">"We are ad free" by mathis</h1>
-            <h2 class="hero-info-text">
-                matSFX is an Open-Source and ad-free
-                alternative to Music <br>
-                Apps like Spotify and YouTube Music.<br>
-                We try our best to listen to your feedback!
-            </h2>
-            <h2 class="hero-info-link">
-                You can send us your Feedback trough <a href="https://discord.matsfx.com" target="_blank">our Discord Server</a>.
-            </h2>
-        </div>
-        <div class="hero-logo">
-            <img src="/images/matsfx_logo.jpg" alt="matSFX Logo" class="hero-logo-image">
+    <!-- hero section -->
+    <section class="hero">
+        <div class="hero-card-container">
+            <div class="hero-card">
+                <h1 class="hero-quote">"We are ad free" by mathis</h1>
+                <h2 class="hero-info-text">
+                    matSFX is an Open-Source and ad-free
+                    alternative to Music Apps like Spotify and YouTube Music.
+                    We try our best to listen to your feedback!
+                </h2>
+                <h2 class="hero-info-link">
+                    You can send us your Feedback trough <a href="https://discord.matsfx.com" target="_blank">our Discord Server</a>.
+                </h2>
+            </div>
+            
+            <div class="hero-logo">
+                <img src="/images/matsfx_logo.jpg" alt="matSFX Logo" class="hero-logo-image">
+            </div>
         </div>
 
         <div class="hero-buttons">
             <a class="hero-button1" href="https://alpha.matsfx.com" target="_blank">Try matSFX</a>
-            <!-- idk if we need the apply button yet-->
             <a class="hero-button2" href="/">Apply</a>
         </div>
-    </div>
+    </section>
 
-    <!-- info-section - info-one, info-text-one, info-two, info-text-two -->
-    <div class="info-section">
-        <div class="info-one">
-            <h1 class="info-text-one">
-                What's New?
-            </h1>
-            <a href="https://github.com/matSFX-music/matsfx_main/releases/tag/alpha_0_4_23" target="_blank">
-                <img src="images/info_images/whats_new.png" alt="Whats New Image">
-            </a>
+    <!-- info section -->
+    <section class="info-section">
+        <div class="info-section-inner">
+            <div class="info-one">
+                <h1 class="info-text-one">
+                    What's New?
+                </h1>
+                <a href="https://github.com/matSFX-music/matsfx_main/releases/tag/alpha_0_4_23" target="_blank">
+                    <img src="images/info_images/whats_new.png" alt="Whats New Image">
+                </a>
+            </div>
+            <div class="info-two">
+                <h1 class="info-text-two">
+                    Learn more...
+                </h1>
+                <a href="learn_more" target="_blank">
+                    <img src="images/info_images/learn_more.png" alt="Whats New Image">
+                </a>
+            </div>
         </div>
-        <div class="info-two">
-            <h1 class="info-text-two">
-                Learn more...
-            </h1>
-            <a href="learn_more" target="_blank">
-                <img src="images/info_images/learn_more.png" alt="Whats New Image">
-            </a>
-        </div>
-    </div>
+    </section>
 
-    <!-- socials - socials-discord, socials-twitter, socials-tiktok, socials-youtube -->
+    <!-- socials -->
     <div class="socials">
         <a href="https://discord.matsfx.com" class="socials-dicord" target="_blank">
             <img src="images/socials/discord.png" alt="Discord matSFX">
@@ -95,7 +99,7 @@
         </a>
     </div>
 
-    <!-- community - video-container, video-wrapper, video-player, mute-button, community-text, comunity-text-title, community-text-description, community-love-you-->
+    <!-- community -->
     <div class="community">
         <div class="video-container">
             <div class="video-wrapper">
@@ -108,13 +112,10 @@
             </div>
         </div>
         <div class="community-text">
-            <h1 class="community-love-you">
-                <br> What is the matSFX Community?</h1>
+            <h1 class="community-love-you">What is the matSFX Community?</h1>
             <h2 class="community-love-you">
-                <br>
-                The matSFX Community exists because of you, yes YOU. <br>
-                It doesn't matter if you are <br>
-                just in the Discord or follow one of our socials <br>
+                The matSFX Community exists because of you, yes YOU.
+                It doesn't matter if you are just in the Discord or follow one of our socials.
                 You will always be a part of us ❤️
             </h2>
         </div>
@@ -123,8 +124,8 @@
         </a>
     </div>
 
-    <!-- footer - footer-legal, footer-copy-->
-    <div class="footer">
+    <!-- footer -->
+    <footer class="footer">
         <div class="footer-legal">
             <a class="footer-terms" href="legal/terms" target="_blank">Terms</a>
             <a class="footer-privacy" href="legal/privacy" target="_blank">Privacy</a>
@@ -133,6 +134,6 @@
         <div class="footer-copy">
             (c)matSFX 2025
         </div>
-    </div>
+    </footer>
 </body>
 </html>

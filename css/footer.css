@@ -1,59 +1,37 @@
+/* === Footer === */
 .footer {
-    position: absolute;
-    top: 280vh;
-    width: 170vh;
-    height: 10vh;
-    left: 8%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 80px;
+    gap: 2rem;
 }
-  
+
 .footer-legal {
     font-family: var(--font-1);
-    font-size: 2rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
 }
 
-  
 .footer-legal a {
-    margin: 0 120px;
     color: var(--lighter-text);
     text-decoration: none;
+    transition: var(--transition);
 }
-  
+
+.footer-legal a:hover {
+    color: var(--white-text);
+}
+
 .footer-copy {
-    position: absolute;
     font-family: var(--font-1);
-    font-size: 2rem;
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
     color: var(--lighter-text);
-    bottom: -50%;
-    left: 44.5%;
-    transition: var(--transition);
-}
-
-.footer-terms, .footer-privacy, .terms-license {
-    transition: var(--transition);
-}
-
-@media (max-width: 600px) {
-    .footer {
-        width: 60vh;
-        height: 10vh;
-        left: -5%;
-        top: 290%;
-    }
-
-    .footer-legal {
-        font-size: 1.2rem;
-    }
-
-    .footer-copy {
-        font-size: 1.2rem;
-        left: 36%;
-    }
+    text-align: center;
 }

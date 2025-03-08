@@ -1,36 +1,39 @@
+/* === Hero Section === */
 .hero {
-    position: absolute;
-    width: 170vh;
-    height: 70vh;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    width: 100%;
+    padding: 7rem 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0 20px;
 }
- 
+
+.hero-card-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .hero-card {
-    position: absolute;
+    position: relative;
     background-color: var(--bg-card);
-    border-radius: 50px;
+    border-radius: 30px;
     border: var(--border);
-    top: 0%;
-    left: 3%;
-    width: 80vh;
-    height: 50vh;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    margin-bottom: 2rem;
     animation: slideIn 1s ease-out;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-quote {
-    font-family: var(--font-2);
+    font-family: var(--font-2) !important;
     color: var(--lighter-text);
-    font-size: 4.2em;
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    animation: fadeIn 1s ease-out;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
     transition: var(--transition);
 }
 
@@ -38,22 +41,18 @@
     transform: rotate(-1deg);
 }
 
-.hero-info-text, .hero-info-link {
-    position: absolute;
+.hero-info-text {
     font-family: var(--font-1);
     color: var(--lighter-text);
-    font-size: 1.5rem;
-}
-
-.hero-info-text {
-    top: 30%;
-    left: 7%;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     line-height: 1.5;
+    margin-bottom: 1.5rem;
 }
 
 .hero-info-link {
-    top: 60%;
-    left: 7%;
+    font-family: var(--font-1);
+    color: var(--lighter-text);
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 .hero-info-link a {
@@ -62,14 +61,16 @@
 }
 
 .hero-logo {
-    position: absolute;
-    top: 0%;
-    right: 2%;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 2rem;
+    text-align: center;
     transition: var(--transition);
 }
 
 .hero-logo-image {
-    width: 97%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
 }
 
@@ -78,40 +79,29 @@
 }
 
 .hero-buttons {
-    position: absolute;
-    width: 75vh;
-    height: 8vh;
-
-    bottom: 6%;
-    left: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .hero-button1, .hero-button2 {
-    position: absolute;
     background-color: #111827;
-    width: 35vh;
-    height: 8vh;
+    width: 100%;
+    padding: 1rem;
     border: var(--border);
     border-radius: var(--border-radius);
-
     font-family: var(--font-1);
     color: var(--lighter-text);
     text-decoration: none;
     text-align: center;
     font-size: 1.25rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.hero-button1 {
-    left: 1%;
-    transition: var(--transition);
-}
-
-.hero-button2 {
-    right: 1%;
     transition: var(--transition);
 }
 
@@ -119,45 +109,64 @@
     transform: scale(1.05) rotate(1deg);
 }
 
-@media (max-width: 600px) {
+@media (min-width: 768px) {
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .hero-button1, .hero-button2 {
+        width: 45%;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-card {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 1199px) {
     .hero-logo {
         display: none;
     }
+}
 
+@media (min-width: 1200px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .hero-card-container {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 4rem;
+    }
+    
     .hero-card {
-        width: 54vh;
-        left: 34%;
+        width: 55%;
+        margin-right: 2rem;
     }
-
-    .hero-quote {
-        left: 5%;
-        font-size: 2.5rem;
+    
+    .hero-logo {
+        width: 35%;
+        margin-top: 0;
+        margin-left: 0;
+        display: block;
     }
-
-    .hero-info-text {
-        font-size: 1.3rem;
-        top: 25%;
-        left: 5%;
+    
+    .hero-buttons {
+        margin-top: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 600px;
     }
-
-    .hero-info-link {
-        font-size: 1.3rem;
-        top: 70%;
-        left: 5%;
-    }
-
-    .hero-button1 {
-        width: 54vh;
-        height: 6vh;
-        bottom: 3%;
-        left: 21%;;
-    }
-
-    .hero-button2 {
-        width: 54vh;
-        height: 6vh;
-        top: 120%;
-        left: 21%;;
-    }
-
 }

@@ -1,17 +1,17 @@
 @font-face {
     font-family: 'inter';
-    src: url('/fonts/inter.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
+   src: url('/fonts/inter.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+   }
 @font-face {
-    font-family: 'draw';
-    src: url('/fonts/draw.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+   font-family: 'draw';
+   src: url('/fonts/draw.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
 }
 
+/* Base styles */
 :root {
     /* font */ 
     --font-1: 'inter', sans-serif;
@@ -37,6 +37,12 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    
+    /* spacing variables for consistent padding/margins */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
 }
 
 * {
@@ -45,7 +51,23 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
 body {
     background: linear-gradient(to bottom, var(--bg-gradiant-1), var(--bg-gradient-2));
-    height: 310vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-bottom: 5rem;
+}
+
+/* common container */
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    position: relative;
 }

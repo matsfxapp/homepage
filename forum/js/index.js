@@ -223,26 +223,26 @@ async function showPost(postId) {
     }
 
     const content = `
-        <article class="blog-post" id="post-${post.id}">
-            <h1>${post.title}</h1>
-            <div class="blog-meta">
-                ${post.date ? `<span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10l4.5 4.5"/><circle cx="12" cy="12" r="10"/></svg>${post.date}</span>` : ''}
-                ${post.author ? `<span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${post.author}</span>` : ''}
-                <span class="share-button" onclick="copyToClipboard(window.location.href)" role="button" tabindex="0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                        <path d="M16 6l-4-4-4 4"/>
-                        <path d="M12 2v13"/>
-                    </svg>
-                    Share
+        <article class="blog-post animate-fade-in" id="post-${post.id}">
+            <h1 class="animate-slide-down">${post.title}</h1>
+            <div class="blog-meta animate-fade-in-delay">
+                ${post.date ? `<span class="animate-slide-right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10l4.5 4.5"/><circle cx="12" cy="12" r="10"/></svg>${post.date}</span>` : ''}
+                ${post.author ? `<span class="animate-slide-right"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${post.author}</span>` : ''}
+                <span class="share-button animate-pulse-hover" onclick="copyToClipboard(window.location.href)" role="button" tabindex="0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                    <path d="M16 6l-4-4-4 4"/>
+                    <path d="M12 2v13"/>
+                </svg>
+                Share
                 </span>
             </div>
-            <div class="markdown-content">
+            <div class="markdown-content animate-fade-in-delay-longer">
                 ${post.content}
             </div>
-            <div class="post-navigation">
-                <button onclick="loadPreviousPost('${post.id}')" class="nav-button previous">Previous</button>
-                <button onclick="loadNextPost('${post.id}')" class="nav-button next">Next</button>
+            <div class="post-navigation animate-fade-in-up">
+                <button onclick="loadPreviousPost('${post.id}')" class="button previous animate-slide-left-hover">Previous</button>
+                <button onclick="loadNextPost('${post.id}')" class="button next animate-slide-right-hover">Next</button>
             </div>
         </article>
     `;
@@ -284,10 +284,6 @@ function trackPostView(postId) {
         console.error('Error tracking post view:', error);
     }
 }
-
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('show');
-});
 
 window.addEventListener('scroll', () => {
     document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 0);

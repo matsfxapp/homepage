@@ -1,26 +1,27 @@
+/* === Socials Section === */
 .socials {
-    position: absolute;
+    position: relative;
     background-color: var(--bg-card);
     border: var(--border);
     border-radius: var(--border-radius);
-    width: 160vh;
-    height: 15vh;
-    top: 175%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
-  
+
 .socials a {
-    margin: 0 120px;
+    display: inline-block;
 }
-  
+
 .socials img {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
     transition: var(--transition);
 }
 
@@ -28,19 +29,13 @@
     transform: scale(1.2) rotate(5deg);
 }
 
-@media (max-width: 600px) {
+@media (min-width: 992px) {
     .socials {
-        width: 54vh;
-        height: 10vh;
-        top: 210%;
+        gap: 3rem;
     }
-
-    .socials a {
-        margin: 0 30px;
-    }
-
+    
     .socials img {
-        height: 50px;
-        width: 50px;
+        height: 70px;
+        width: 70px;
     }
 }

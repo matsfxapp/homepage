@@ -182,20 +182,6 @@ main {
     opacity: 1;
 }
 
-@media (max-width: 600px) {
-    body {
-        min-height: 270vh;
-    }
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-member-image {
-        width: 120px;
-        height: 120px;
-    }
-}
-
 .partners-section {
     background-color: var(--bg-card);
     border-radius: var(--border-radius);
@@ -282,18 +268,4 @@ main {
     color: var(--white-text);
     border-bottom-color: var(--white-text);
     opacity: 1;
-}
-
-@media (max-width: 600px) {
-    body {
-        min-height: 320vh;
-    }
-    .partners-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .partner-member-image {
-        width: 120px;
-        height: 120px;
-    }
 }

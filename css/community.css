@@ -1,26 +1,23 @@
+/* === Community Section === */
 .community {
-    position: absolute;
+    position: relative;
     background-color: var(--bg-card);
-    width: 160vh;
-    height: 60vh;
-    top: 205%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    border-radius: 30px;
     border: var(--border);
+    padding: 2rem 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .video-container {
-    position: absolute;
+    position: relative;
     width: 100%;
-    left: 2%;
-    top: 12%;
-    max-width: 960px;
-    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
     animation: slideIn 1.5s ease-out;
 }
 
@@ -34,11 +31,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border: none;
-    left: 5%;
-    max-width: 960px;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -46,8 +41,8 @@
 
 .mute-button {
     position: absolute;
-    bottom: 140px;
-    right: 180px;
+    bottom: 10px;
+    right: 10px;
     background: rgba(0, 0, 0, 0.7);
     border: none;
     border-radius: 50%;
@@ -72,50 +67,33 @@
 }
 
 .community-text {
-    width: 55vh;
-    height: 18vh;
-    position: absolute;
-    right: 6%;
-    top: 14%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
     animation: fadeIn 2s ease-out;
 }
 
 .community-text-title, .community-text-description, .community-love-you {
     font-family: var(--font-1);
     color: var(--lighter-text);
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
 }
 
 .community-btn {
-    position: absolute;
-    width: 75vh;
-    height: 8vh;
-
-    bottom: 6%;
-    left: 25%;
-}
-
-.community-btn {
-    position: absolute;
+    display: inline-block;
+    margin: 0 auto;
     background-color: #111827;
-    width: 35vh;
-    height: 8vh;
+    padding: 1rem 2rem;
+    width: fit-content;
     border: var(--border);
     border-radius: var(--border-radius);
-
     font-family: var(--font-1);
     color: var(--lighter-text);
     text-decoration: none;
     text-align: center;
     font-size: 1.25rem;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.community-btn {
-    top: 76%;
-    left: 67%;
     transition: var(--transition);
 }
 
@@ -123,26 +101,24 @@
     transform: scale(1.05) rotate(1deg);
 }
 
-@media (max-width: 600px) {
+@media (min-width: 768px) {
     .community {
-        width: 54vh;
-        height: 80vh;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
     }
-
-    .community-text {
-        font-size: 0.8rem;
-        width: 44vh;
-        height: 30vh;
-        top: 40%;
-    }
-
+    
     .video-container {
-        top: 5%;
-        left: 5%;
+        width: 60%;
     }
-
-    .mute-button {
-        top: 160px;
-        right: 85px;
+    
+    .community-text {
+        width: 35%;
+        text-align: left;
+    }
+    
+    .community-btn {
+        margin-left: auto;
+        margin-right: 2rem;
     }
 }

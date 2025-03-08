@@ -1,116 +1,15 @@
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
 @keyframes slideIn {
-    from { 
-        opacity: 0; 
-        transform: translateX(-50px); 
+    0% { 
+        opacity: 0;
+        transform: translateY(50px);
     }
-    to { 
-        opacity: 1; 
-        transform: translateX(0); 
+    100% { 
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.nav-links a {
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--white-text);
-    transform: scale(1.1);
-}
-
-.nav-button a {
-    animation: pulse 2s infinite;
-    transition: var(--transition);
-}
-
-.nav-button a:hover {
-    background-color: var(--white-text);
-    color: var(--bg-header);
-}
-
-.footer-terms, 
-.footer-privacy, 
-.terms-license {
-    transition: var(--transition);
-}
-
-.footer-legal a:hover {
-    color: var(--white-text);
-    transform: scale(1.1);
-}
-
-.hero-card {
-    animation: slideIn 1.5s ease-out;
-}
-
-.hero-quote {
-    animation: fadeIn 1.5s ease-out;
-}
-
-.hero-buttons .hero-button1,
-.hero-buttons .hero-button2 {
-    transition: var(--transition);
-}
-
-.hero-buttons .hero-button1:hover,
-.hero-buttons .hero-button2:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-}
-
-.info-section .info-one,
-.info-section .info-two {
-    transition: var(--transition);
-}
-
-.info-section .info-one:hover,
-.info-section .info-two:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-md);
-}
-
-.socials img {
-    transition: var(--transition);
-}
-
-.socials img:hover {
-    transform: scale(1.2) rotate(5deg);
-    color: var(--white-text);
-}
-
-.community-text {
-    animation: fadeIn 2s ease-out;
-}
-
-.mute-button {
-    transition: var(--transition);
-}
-
-.mute-button:hover {
-    transform: scale(1.2) rotate(20deg);
-}
-
-.video-container {
-    animation: slideIn 1.5s ease-out;
-}
-
-@media (max-width: 768px) {
-    .nav-links a:hover,
-    .hero-buttons .hero-button1:hover,
-    .hero-buttons .hero-button2:hover,
-    .socials img:hover,
-    .footer-legal a:hover {
-        transform: none;
-    }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
