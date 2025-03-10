@@ -85,7 +85,7 @@
 @media (min-width: 992px) {
     .navbar {
         padding: 1rem 2rem;
-        display: none;
+        display: flex;
     }
     
     .nav-links a {
