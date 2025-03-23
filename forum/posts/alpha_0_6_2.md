@@ -30,4 +30,4 @@ release of Alpha 0.6.2 — focused on new player features, better mobile support
 **Full Changelog**:
 https://github.com/matsfxapp/main/compare/alpha_0_6...alpha_0_6_2
 
-<img src="https://github.com/user-attachments/assets/8c8bbeb2-4160-496e-a67d-0b84a5626caf" width="400">
+<img src="https://github.com/user-attachments/assets/8c8bbeb2-4160-496e-a67d-0b84a5626caf" width="700">
