@@ -1,7 +1,7 @@
 services:
   web:
     build: .
-    container_name: website
+    container_name: matsfxhome
     ports:
       - "${PORT}:80"
     restart: unless-stopped
